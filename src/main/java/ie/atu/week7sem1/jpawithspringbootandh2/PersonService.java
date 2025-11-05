@@ -2,6 +2,8 @@ package ie.atu.week7sem1.jpawithspringbootandh2;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PersonService {
     private final PersonRepository repo;
@@ -11,6 +13,10 @@ public class PersonService {
 
     public Person create(Person p) {
         return repo.save(p);
+    }
+
+    public List<Person> findAll() {
+        return repo.findAll();
     }
 
     public Person findByEmployeeId(String id) {

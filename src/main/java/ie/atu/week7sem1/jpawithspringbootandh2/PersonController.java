@@ -21,14 +21,13 @@ public class PersonController {
         return service.create(person);
     }
 
-    @GetMapping("/{id}")
-    public Person byEmployeeId(@PathVariable String id) {
+    @GetMapping("/{employeeId}")
+    public Person byEmployeeId(@PathVariable String id) {   // Error messages about remaining can be ignored, does not affect code functionality
         return service.findByEmployeeId(id);
     }
-    /*
+
     @GetMapping
     public List<Person> all() {
         return service.findAll();
     }
-    */
 }
