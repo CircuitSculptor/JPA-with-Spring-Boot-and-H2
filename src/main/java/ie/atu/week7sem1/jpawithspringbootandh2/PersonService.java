@@ -16,6 +16,7 @@ public class PersonService {
     public Person findByEmployeeId(String id) {
         return repo.findByEmployeeId(id)
                 .orElseThrow(() -> new IllegalArgumentException("Employee with id " + id + " not found"));
+                //.orElseThrow(() -> new IllegalArgumentException("Employee not found"));
     }
 
 }
