@@ -32,7 +32,7 @@ public class PersonController {
     }
 
     @PutMapping("/{id}")
-    public Person update(@PathVariable String id, @Valid @RequestBody Person person) {
+    public Person update(@PathVariable String id, @Valid @RequestBody Person updatePerson) {
         return service.update(id, updatePerson);
     }
 }
