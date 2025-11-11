@@ -35,4 +35,10 @@ public class PersonController {
     public Person update(@PathVariable String id, @Valid @RequestBody Person updatePerson) {
         return service.update(id, updatePerson);
     }
+
+    @DeleteMapping("/[employeeId")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable String id) {
+        service.delete(id);
+    }
 }
