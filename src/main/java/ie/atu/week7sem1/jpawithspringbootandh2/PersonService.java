@@ -1,5 +1,6 @@
 package ie.atu.week7sem1.jpawithspringbootandh2;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,6 +37,14 @@ public class PersonService {
                     return repo.save(existingPerson);
                 })
                 .orElseThrow(() -> new IllegalArgumentException("Employee with id " + id + " not found"));
+    }
+
+    public void deleteByEmployeeId(String id) {
+        if (repo.findByEmployeeId(id).isPresent()) {
+            repo.delete(repo.findByEmployeeId(id).get());
+        } else {
+            throw new IllegalArgumentException("Employee with id " + id + " not found");
+        }
     }
 
 }
