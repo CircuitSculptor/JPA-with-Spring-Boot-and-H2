@@ -30,4 +30,9 @@ public class PersonController {
     public List<Person> all() {
         return service.findAll();
     }
+
+    @PutMapping("/{id}")
+    public Person update(@PathVariable String id, @Valid @RequestBody Person person) {
+        return service.update(id, updatePerson);
+    }
 }
