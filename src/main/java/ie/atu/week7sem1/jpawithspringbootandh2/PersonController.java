@@ -2,6 +2,7 @@ package ie.atu.week7sem1.jpawithspringbootandh2;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,5 +35,11 @@ public class PersonController {
     @PutMapping("/{employeeId}")
     public Person update(@PathVariable String id, @Valid @RequestBody Person updatePerson) {
         return service.update(id, updatePerson);
+    }
+
+    @DeleteMapping("/{employeeId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable String id) {
+        service.deleteByEmployeeId(id);
     }
 }
